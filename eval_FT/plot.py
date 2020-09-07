@@ -7,15 +7,15 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from datetime import datetime, timedelta
 
-churns = ['1', '2', '4', '8', '16', '32', '35', '40']
+churns = ['1', '2', '4', '8', '16', '32', '35']
 all_lines = []
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(15, 5))
 
 to_plot = np.zeros((8, 102))
 row = 0
 
-completion_times = np.zeros(8)
-final_error = np.zeros(8)
+completion_times = np.zeros(7)
+final_error = np.zeros(7)
 
 for i in range(7):
 
@@ -31,8 +31,8 @@ for i in range(7):
 	completion_times[i] = timeToComplete.seconds
 	final_error[i] = df[1].values[100]
 
-final_error[7] = 0.00124
-completion_times[7] = 9999
+#final_error[7] = 0.00124
+#completion_times[7] = 9999
 
 # for rate in churns:
 
@@ -45,10 +45,10 @@ completion_times[7] = 9999
 # 	to_plot[row] = potential_row
 # 	row += 1
 
-width = 0.35
-rects1 = ax.bar(np.arange(8), completion_times, width, label='Completion Time')
-#rects1 = ax.bar(np.arange(8) - width/2, completion_times, width, label='Completion Time')
-#rects2 = ax.bar(np.arange(8) + width/2, final_error, width, label='Final Test Error')
+width = 0.4
+#rects1 = ax.bar(np.arange(7), completion_times, width, label='Completion Time')
+rects1 = ax.bar(np.arange(7) - width/2, completion_times / np.max(completion_times), width, label='Completion Time')
+rects2 = ax.bar(np.arange(7) + width/2, final_error, width, label='Final Test Error')
 
 # plt.bar(np.arange(8), completion_times)
 # plt.bar(np.arange(8), final_error)
@@ -61,17 +61,17 @@ rects1 = ax.bar(np.arange(8), completion_times, width, label='Completion Time')
 # ax.add_line(l1)
 # ax.add_line(l2)
 
-#plt.legend(loc='best', fontsize=18)
+plt.legend(loc='best', fontsize=20, ncol=2)
 #plt.legend(loc='upper center', fontsize=18, ncol=2)
 
-axes = plt.gca()
-axes.set_ylim([0, 9999])
+#axes = plt.gca()
+#axes.set_ylim([0, 9999])
 
-plt.xlabel("Churn Rate (nodes/minute)", fontsize=22)
-plt.ylabel("Total Execution Time (s)", fontsize=22)
+plt.xlabel("Churn Rate (nodes/minute)", fontsize=24)
+plt.ylabel("Total Execution Time (s)", fontsize=24)
 
-plt.xticks(np.arange(8), churns, fontsize=18)
-plt.setp(ax.get_yticklabels(), fontsize=18)
+plt.xticks(np.arange(7), churns, fontsize=20)
+plt.setp(ax.get_yticklabels(), fontsize=20)
 
 ax.spines['right'].set_visible(False)
 ax.spines['top'].set_visible(False)

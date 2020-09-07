@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 rates = ['0.05', '0.10', '0.15', '0.20', '0.25', '0.30', '0.35', '0.40', '0.45', '0.50']
 all_lines = []
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(10, 4))
 
 to_plot = np.zeros((10, 102))
 
@@ -46,14 +46,14 @@ rects2 = ax.bar(np.arange(10) + width/2, final_rate, width, label='Final Attack 
 # ax.add_line(l1)
 # ax.add_line(l2)
 
-plt.legend(loc='best', fontsize=18)
+plt.legend(loc='best', fontsize=18, ncol=2)
 #plt.legend(loc='upper center', fontsize=18, ncol=2)
 
 axes = plt.gca()
 axes.set_ylim([0, 1.09])
 
 plt.xlabel("Poisoning Proportion", fontsize=22)
-plt.ylabel("Training Time/Attack Rate", fontsize=22)
+plt.ylabel("Training Time/\nAttack Rate", fontsize=22)
 
 plt.xticks(np.arange(10), rates, fontsize=18)
 plt.setp(ax.get_yticklabels(), fontsize=18)

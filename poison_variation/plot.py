@@ -8,7 +8,7 @@ import matplotlib.lines as mlines
 
 rates = ['0.05', '0.10', '0.15', '0.20', '0.25', '0.30', '0.35', '0.40', '0.45', '0.50']
 all_lines = []
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(5, 2))
 
 to_plot = np.zeros((10, 102))
 row = 0
