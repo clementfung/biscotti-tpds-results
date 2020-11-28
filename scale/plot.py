@@ -1,3 +1,7 @@
+import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
+
 import pdb
 import sys
 import numpy as np
@@ -108,11 +112,11 @@ def plot(header_string, numRuns,  time=True):
 
 if __name__ == '__main__':
 
-	plot("600K", 3, True)
-	#plot("600K", 3, False)
+	#plot("600K", 3, True)
+	plot("600K", 3, False)
 
-	plot("6mil", 1, True)
-	#plot("6mil", 1, False)
+	#plot("6mil", 1, True)
+	plot("6mil", 1, False)
 
 # churns = ['1', '2', '4', '8', '16', '32', '35']
 # all_lines = []
